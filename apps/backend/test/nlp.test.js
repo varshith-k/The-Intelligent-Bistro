@@ -4,14 +4,20 @@ const { parseOrderIntent } = require('../src/nlp');
 const { applyActions } = require('../src/cart');
 
 test('parses mixed quantity and size add command into structured cart actions', () => {
-  const intent = parseOrderIntent('Add two spicy chicken sandwich and a large water');
+  const intent = parseOrderIntent('Add two spicy chicken sandwiches and a large water');
 
-  assert.equal(intent.actions.length, 1);
+  assert.equal(intent.actions.length, 2);
   assert.deepEqual(intent.actions[0], {
     type: 'add_item',
     itemId: 'spicy-chicken-sandwich',
-    size: 'large',
+    size: 'regular',
     quantity: 2,
+  });
+  assert.deepEqual(intent.actions[1], {
+    type: 'add_item',
+    itemId: 'water',
+    size: 'large',
+    quantity: 1,
   });
 });
 

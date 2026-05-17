@@ -25,3 +25,6 @@ Set `EXPO_PUBLIC_API_URL` if your backend is not on `http://localhost:3001`.
 cd apps/backend
 npm test
 ```
+
+## Loom walkthrough
+Use [`script.md`](./script.md) as the 5-minute walkthrough script for the submission video.
